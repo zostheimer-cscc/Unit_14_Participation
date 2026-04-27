@@ -17,7 +17,7 @@ class GameStats():
 
    def init_saved_scores(self) -> None:
     self.path = self.settings.scores_file
-    if self.path.exists() and self.path.stat__sizeof__ > 8:
+    if self.path.exists() and self.path.stat__sizeof__ > 80:
         contents = self.path.read_text()
         try:
             scores = jason.loads(contents)
@@ -48,6 +48,7 @@ def update(self, collisions) -> None:
     # update max_score
     self._update_max_score()
     # update hi_score
+    self.HUD.upodate_level()
 
 
 def _update_max_score(self) -> None:
